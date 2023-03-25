@@ -1,0 +1,36 @@
+syntax = "proto3";
+option java_package = "com.src.grpc";
+option java_multiple_files = true;
+
+service MessageSenderService{
+
+	rpc send(SendRequest) returns (Response);
+	
+	
+}
+
+
+message SendRequest{
+
+    string name = 1;
+ 
+}
+
+
+message Response{
+
+	string responseMessage = 1;
+	ResponseCode Code = 2;
+	
+}
+
+enum ResponseCode {
+
+        Unknown = 0;
+        Success = 1;
+        Failed = 2;
+        
+}
+
+
+
